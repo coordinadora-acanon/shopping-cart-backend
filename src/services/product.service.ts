@@ -1,10 +1,10 @@
 import { ProductRepository } from "../repositories/product.repository";
-import { Product } from "../entities/product.entity";
+import { ProductDto } from "../dtos/product.dto";
 
 export class ProductService {
   constructor(private readonly productRepository: ProductRepository) {}
 
-  getProducts(): Product[] {
+  getProducts(): ProductDto[] {
     return this.productRepository.getProducts();
   }
 }
