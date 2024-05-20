@@ -1,9 +1,11 @@
 import express from "express";
 import { CartController } from "./controllers/cart.controller";
 import { ProductController } from "./controllers/product.controller";
+import { requestLogger } from "./middleware/loggerMiddleware";
 
 const app = express();
 app.use(express.json());
+app.use(requestLogger);
 
 app.get("/cart", CartController.getCart);
 app.post("/cart", CartController.addItem);
