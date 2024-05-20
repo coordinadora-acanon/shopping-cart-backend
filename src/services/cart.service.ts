@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { CartRepository } from "../repositories/cart.repository";
 import { CartItemDto } from "../dtos/cart-item.dto";
 import { CartItem } from "../entities/cart-item.entity";
@@ -10,8 +11,10 @@ export class CartService {
   }
 
   addItem(itemDto: CartItemDto): void {
+    const id = uuidv4();
     const item = new CartItem(
-      itemDto.id,
+      id,
+      itemDto.productId,
       itemDto.name,
       itemDto.quantity,
       itemDto.price
